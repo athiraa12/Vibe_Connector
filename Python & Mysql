@@ -1,0 +1,158 @@
+import mysql.connector as mys
+mydb=mys.connect(host="localhost",user="root",password="system",database="trial")
+mycursor=mydb.cursor()
+print("1.User or 2.Admin?(1/2)")
+ch=int(input("Enter choice:"))
+if ch==1:
+    print("*********************************")
+    print("___________WELCOME TO THE VIBE COLLECTER!____________")
+    print("**************RULES******************")
+    print("~We will be asking you some questions! Answer with full honesty!")
+    print("~Once you start do not leave this quiz!")
+    print("~Lets get started with some basic one word answers")
+
+    mycursor.execute("create table a(question varchar(100),answer varchar(200))")
+    no=0
+    def inp(x,y):
+        query="insert into a(question,answer) values(%s,%s)"
+        val=(x,y)
+        mycursor.execute(query,val)
+        mydb.commit()
+    def rename():
+        queryl="ALTER TABLE a RENAME TO {0};".format(name)
+        mycursor.execute(queryl)
+        mydb.commit()
+8
+    def aftername():
+        mycursor.execute("SELECT * FROM users")
+        t=mycursor.fetchall()
+        global no
+        no=len(t)+1
+        query="insert into users(no,name) values(%s,%s)"
+        val=no,name
+        mycursor.execute(query,val)
+        mydb.commit()
+    name=input("Enter name:")
+    aftername()
+    age=input("Enter age:")
+    inp("Age",age)
+    colour=input("Enter favourite colour:")
+    inp("Colour",colour)
+    ans=input("Do you like movies?(y/n):")
+    if ans.lower()=="y":
+        mcudc=int(input("Which of the followings are you a fan of:\n1.MU(Marvel Universe\n2.DC\n3.Both\n4.None of the above\nEnter choice:"))
+        if mcudc==1:
+            char=input("Enter your favourite character:")
+            why=input("Why are they your favourite?:")
+            query="insert into marvel(no,name,chrctr,reason) values(%s,%s,%s,%s)"
+            val=no,name,char,why
+            mycursor.execute(query,val)
+            mydb.commit()
+9
+        elif mcudc==2:
+            char=input("Enter your favourite character:")
+            why=input("Why are they your favourite?:")
+            query="insert into DC(no,name,chrctr,reason) values(%s,%s,%s,%s)"
+            val=no,name,char,why
+            mycursor.execute(query,val)
+            mydb.commit()
+        elif mcudc==3:
+            char=input("Enter your favourite character:")
+            why=input("Why are they your favourite?:")
+            inp("Comic_Universe","LikesBoth")
+            where=input("Where is your fav character from?/n1.Marvel/n2.Dc")
+            if where==1:
+                inp("Fav_Comic_Universe","Marvel")
+            else:
+                inp("Fav_Comic_Universe","DC")
+        else:
+            print("Ok")
+        movie=input("Which is your favourite movie and why?:")
+        inp("Fav_Movie",movie)
+    else:
+        print("Ok")
+    sng=input("Enter favourite song:")
+    inp("Fav_Song",sng)
+    k=input("Do you like Kpop?(y/n):")
+    if k.lower()=="y":
+10
+        grp=input("Which is your fav group?:")
+        inp("Fav_Group",grp)
+        member=input("Who is your fav member?:")
+        inp("Fav_Member",member)
+        song=input("Which is your fav song by them?:")
+        inp("Fav_Song",song)
+        query="insert into kpop(no,name,grp,member,song) values(%s,%s,%s,%s,%s)"
+        val=no,name,grp,member,song
+        mycursor.execute(query,val)
+        mydb.commit()
+    else:
+        print("Ok")
+        print("**********************************")
+        print("_______Now lets move onto some intermediate questions___________")
+        
+    do=input("What is your favorite thing to do out of these answers?\n1.Reading\n2.Some type of sport\n3.Learning\n4.Being with my friends\n5.Just relaxing\n6.Surfing the internet\nEnter choice:")
+    inp("Leisure_activity",do)
+    print("-----------------------------------------------------------------")      
+    fg=input("How big is your friend group?(Answer numerically):")
+    inp("Friend_Group",fg)
+    print("-----------------------------------------------------------------")    
+    fd=input("Which is your favourite unhealthy food?\n1.Candy\n2.Street Foods\n3.Franchised Foods(McDonalds,Dominos,KFC)\nEnter choice:")
+    inp("Fav_junkfood",fd)
+    print("-----------------------------------------------------------------")      
+11
+    dy=input("How would you describe yourself?:\n1.Funny and Loving\n2.Cute and Smart\n3.Awkward, but amazing\n4.Shy,but very outgoing when you get to know me\nEnter choice:")
+    inp("Personal_description",dy)
+    print("-----------------------------------------------------------------")            
+    ns=input("What would you say is your most notable strength?\n1.Intelligent\n2.Adaptive\n3.Supportive\n4.Organised\n5.Good leader\nEnter choice:")
+    inp("Strength",ns)
+    print("-----------------------------------------------------------------")            
+    nw=input("What is your biggest flaw??\n1.I get angry or sad when things don't go my way\n2.I'm over protective\n3.I don't really think before I speak\n4.I often feel like I have trouble fittimg  in with others\n5.I'm greedy\n6.I compare myself to others too often\nEnter choice:")
+    inp("Flaws",nw)
+    print("-----------------------------------------------------------------")            
+    ip=input("If you could choose to live anywhere, what kind of place would it be?\n1.Somewhere isolated and safe me\n2.I'm fine anywere\n3.Trophical place\n4.Somewhere where I can explore\n5.cold place\nEnter choice:")
+    inp("Ideal_place",ip)
+    print("-----------------------------------------------------------------")            
+    ay=input("What kind of things annoy you?\n1.When things aren't perfect.\n2.When people act soft around me\n3.Betrayal\n4.Taking about my past\n5.Being ignored\nEnter choice:")
+    inp("Annoying_things",ay)
+    print("-----------------------------------------------------------------")            
+    da=input("How do you deal with anger?\n1.I Sulk\n2.I share with my friends\n3.I yell\nEnter choice:")
+    inp("Deal_anger",da)
+    print("-----------------------------------------------------------------")            
+    fs=input("What is your favorite season?\n1.Winter\n2.Spring\n3.Summer\n3.Fall\nEnter choice:")
+    inp("Fav_season",fs)
+    print("-----------------------------------------------------------------")
+12
+    fr=input("What are you scared of?\n1.Failure\n2.I'm not scared of anything\n3.Death\n4.Expressing Myself\n5.Reptiles\n6.Spiders\nEnter choice:")
+    inp("Fear",fr)
+    print("-----------------------------------------------------------------")             
+    ob=input("Do you like to think outside of the box?\n1.Always\n2.Not really\n3.Yeah often\n4.I'm not sure\nEnter choice:")
+    inp("Creative",ob)
+    print("-----------------------------------------------------------------")      
+    ut=input("You have a Unit Test in few weks.How do you prepare? Be honest!\n1.Try and study\n2.Stay calm and study\n3.Study long and hard\n4.I get distracted easily\n5.Group study\n6.I'm not a student\n7.None of the above\nEnter choice:")
+    inp("Exam_prep",ut)
+    print("-----------------------------------------------------------------")            
+    rename()        
+elif ch==2:
+    op=int(input("1.Display table of specific user\n2.Display all users\n3.Delete table of a user\n Enter choice:"))
+    if op==1:
+        n=input("Enter name of user to display:")
+        query="select * from {0}".format(n)
+        mycursor.execute(query)
+        for i in mycursor:
+            print(i)
+    elif op==2:
+        mycursor.execute("select * from useres")
+        for i in mycursor:
+            print(i)
+    elif op==3:
+13
+        n=input("Enter user to delete:")
+        query="drop table {0}".format(n)
+        mycursor.execute(query)
+        query2="delete from users where name={0}".format(name)
+        mycursor.commit()
+    else:
+        print("Error!")
+else:
+    print("Error!")
