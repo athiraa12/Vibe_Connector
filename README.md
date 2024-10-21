@@ -26,7 +26,7 @@ The **Teen Socializer** program helps teens:
 - **Conversation Starters**: Suggests topics for users to break the ice.
 - **Personality Matching**: Groups teens based on compatible personality types.
 
-## Structure of the project
+## COllecting user interest
 ![image](https://github.com/user-attachments/assets/74c006b2-4efa-42ad-a05d-9f1e1ebca9ef)
 
 ## Data stored in Mysql
